@@ -1,0 +1,26 @@
+aliyun:
+    oss:
+        access-key-id: 'LTAI5tJnDCAAMh6EAoBaFXnA'
+        access-key-secret: '6hyLgrkMAqI0VJeurfIktsGl071dN5'
+        bucket-name: kkbank
+        endpoint: oss-cn-qingdao.aliyuncs.com
+file:
+    ip: localhost
+mybatis-plus:
+    configuration:
+        log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+server:
+    port: 9090
+spring:
+    datasource:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        password: root
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:mysql://localhost:3306/health_system?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false&serverTimezone=GMT%2b8
+        username: root
+    servlet:
+        multipart:
+            max-file-size: 100MB
+logging:
+    level:
+        root: debug

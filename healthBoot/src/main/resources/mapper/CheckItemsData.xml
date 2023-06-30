@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.health.mapper.CheckItemsDataMapper">
+
+    <select id="getItemsListByPre" parameterType="java.util.Map"
+    resultType="com.example.health.entity.CheckItemsData">
+        SELECT DATE_FORMAT(t.appointment_time,'%Y-%m-%d') AS daySelect,r.limit_people AS limitPeople,COUNT(*) AS preCount   FROM appointment t
+        LEFT OUTER JOIN appointment_rule r ON  DATE_FORMAT(t.appointment_time,'%Y-%m-%d')=r.day
+        WHERE t.is_del=0 AND DATE_FORMAT(t.appointment_time,'%Y-%m')='2023-06'
+        GROUP BY DATE_FORMAT(t.appointment_time,'%Y-%m-%d')
+    </select>
+    <select id="getGroupAndDocter" resultType="java.util.Map">
+        select group_name,create_people
+        from check_items_data
+        where user_id = #{userId} and appointment_id = #{appointmentId}
+        GROUP BY appointment_id,group_id,group_name,create_people
+    </select>
+
+</mapper>

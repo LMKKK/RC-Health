@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.health.mapper.AppointmentMapper">
+    <select id="getDayAppointment" parameterType="java.util.Map"
+            resultType="java.util.Map">
+        select rule.day as daySelect, ifnull(rule.limitPeople,0) as limitPeople, ifnull(pre.preCount,0) as preCount from
+        (
+        SELECT
+        DATE_FORMAT(t.appointment_time,'%Y-%m-%d') AS daySelect,
+        COUNT(*) AS preCount
+        FROM appointment t
+        LEFT OUTER JOIN appointment_rule r
+        ON DATE_FORMAT(t.appointment_time,'%Y-%m-%d')=r.day
+        WHERE t.is_del=0
+        <if test="appointmentMonth!=null and appointmentMonth !='' ">
+            AND DATE_FORMAT(t.appointment_time,'%Y-%m')=#{appointmentMonth}
+        </if>
+        <if test="appointmentDay!=null and appointmentDay !='' ">
+            AND DATE_FORMAT(t.appointment_time,'%Y-%m-%d')=#{appointmentDay}
+        </if>
+        GROUP BY DATE_FORMAT(t.appointment_time,'%Y-%m-%d')
+        ) as pre
+        right join(
+        select day,
+        r.limit_people AS limitPeople
+        from appointment_rule r
+        where month = #{appointmentMonth}
+        ) as rule
+        on pre.daySelect = rule.day
+        order by rule.day
+    </select>
+    <select id="getAppointmentPeople" resultType="com.example.health.entity.Appointment">
+        select * from `appointment` where appointment_time = #{appointmentDay}
+    </select>
+
+
+</mapper>

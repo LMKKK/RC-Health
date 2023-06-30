@@ -1,0 +1,37 @@
+{
+  "groups": [
+    {
+      "name": "aliyun.oss",
+      "type": "com.example.health.utils.config.OssConfigProperties",
+      "sourceType": "com.example.health.utils.config.OssConfigProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "aliyun.oss.access-key-id",
+      "type": "java.lang.String",
+      "sourceType": "com.example.health.utils.config.OssConfigProperties"
+    },
+    {
+      "name": "aliyun.oss.access-key-secret",
+      "type": "java.lang.String",
+      "sourceType": "com.example.health.utils.config.OssConfigProperties"
+    },
+    {
+      "name": "aliyun.oss.bucket-name",
+      "type": "java.lang.String",
+      "sourceType": "com.example.health.utils.config.OssConfigProperties"
+    },
+    {
+      "name": "aliyun.oss.domain",
+      "type": "java.lang.String",
+      "sourceType": "com.example.health.utils.config.OssConfigProperties"
+    },
+    {
+      "name": "aliyun.oss.endpoint",
+      "type": "java.lang.String",
+      "sourceType": "com.example.health.utils.config.OssConfigProperties"
+    }
+  ],
+  "hints": []
+}
