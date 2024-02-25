@@ -41,7 +41,6 @@ export default {
   },
   data() {
     return {
-      vedioCanPlay: false,
       fixStyle: '',
       form: {role: 1},
       rules: {
@@ -87,14 +86,12 @@ export default {
     window.onresize()
   },
   methods: {
-    canplay() {
-      this.vedioCanPlay = true
-    },
     // 接收验证码组件提交的 4位验证码
     createValidCode(data) {
       this.validCode = data
     },
     login () {
+      // 提交前再次校验
       this.$refs['form'].validate((valid) => {
         if (valid) {
           if (!this.form.validCode) {
@@ -105,6 +102,7 @@ export default {
             this.$message.error("验证码错误")
             return
           }
+          // 请求登录接口
           request.post("/user/login", this.form).then(res => {
             if (res.code === '0') {
               this.$message({
