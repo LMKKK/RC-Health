@@ -136,7 +136,7 @@ export default {
   position: fixed;
   height: 100%;
   width: 100%;
-  background: url("../assets/health_background.png") no-repeat center center;
+  background: url("@/assets/health_background.png") no-repeat center center;
   background-size: cover;
 }
 .homepage-hero-module,

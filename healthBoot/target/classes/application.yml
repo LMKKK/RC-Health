@@ -1,9 +1,3 @@
-aliyun:
-    oss:
-        access-key-id: 'LTAI5tJnDCAAMh6EAoBaFXnA'
-        access-key-secret: '6hyLgrkMAqI0VJeurfIktsGl071dN5'
-        bucket-name: kkbank
-        endpoint: oss-cn-qingdao.aliyuncs.com
 file:
     ip: localhost
 mybatis-plus:

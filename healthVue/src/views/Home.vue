@@ -1,27 +1,3 @@
-<template>
-  <div>
-    <el-row justify="center">
-      <el-col :span="6">
-        <h1>欢迎来到荣成市健康管理平台!</h1>
-      </el-col>
-    </el-row>
-<br/>
-<br/>
-    <!-- 轮播图 -->
-    <el-carousel :interval="2000" type="card" height="500px">
-      <!-- 每个轮播项目 -->
-      <el-carousel-item v-for="item in imgs" :key="item" :label="item.label">
-
-        <div class="lb-item">
-          <h3>{{ item.title }}</h3>
-          <img :src="item.img" />
-        </div>
-
-      </el-carousel-item>
-    </el-carousel>
-  </div>
-</template>
-
 <script setup>
 import { ref } from 'vue'
 let imgs = ref([{
@@ -46,8 +22,30 @@ let imgs = ref([{
   img: 'https://kkbank.oss-cn-qingdao.aliyuncs.com/note-img/20230625224450.png'
 }
 ])
-
 </script>
+
+<template>
+  <div>
+    <el-row justify="center">
+      <el-col :span="6">
+        <h1>欢迎来到荣成市健康管理平台!</h1>
+      </el-col>
+    </el-row>
+    <br />
+    <br />
+    <!-- 轮播图 -->
+    <el-carousel :interval="2000" type="card" height="500px">
+      <!-- 每个轮播项目 -->
+      <el-carousel-item v-for="item in imgs" :key="item" :label="item.label">
+        <div class="lb-item">
+          <h3>{{ item.title }}</h3>
+          <img :src="item.img" />
+        </div>
+      </el-carousel-item>
+    </el-carousel>
+  </div>
+</template>
+
 
 <style scoped>
 .lb-item {

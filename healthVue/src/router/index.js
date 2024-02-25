@@ -60,6 +60,7 @@ function activeRouter() {
     }
 }
 
+// 未登录跳转登录页面
 router.beforeEach((to, from, next) => {
     if (to.path === '/login' || to.path === '/register') {
         next()

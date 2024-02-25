@@ -14,6 +14,7 @@ export function activeRouter() {
             redirect: "/home",
             children: []
         }
+        // 追加孩子路由
         user.permissions.forEach(p => {
             let obj = {
                 path: p.path,
